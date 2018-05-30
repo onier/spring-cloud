@@ -20,4 +20,4 @@ server:
   port: 2100
 spring:
   application:
-    name: eureka-client
+    name: SERVICE-HELLO

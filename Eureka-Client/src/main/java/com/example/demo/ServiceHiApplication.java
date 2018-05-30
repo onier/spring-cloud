@@ -17,12 +17,4 @@ public class ServiceHiApplication {
         SpringApplication.run(ServiceHiApplication.class, args);
     }
 
-    @Value("${server.port}")
-    String port;
-
-    @RequestMapping("/hi")
-    public String home(@RequestParam String name) {
-        return "hi " + name + ",i am from port:" + port;
-    }
-
 }
