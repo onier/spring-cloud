@@ -17,6 +17,7 @@ import org.springframework.web.client.RestTemplate;
 public class ServiceHiApplication {
 
     @Bean
+//    @LoadBalanced
     public RestTemplate getRestTemplate() {
         return new RestTemplate();
     }
