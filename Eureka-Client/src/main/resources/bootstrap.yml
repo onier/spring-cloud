@@ -17,7 +17,7 @@ eureka:
       leaseRenewalIntervalInSeconds: 5
       leaseExpirationDurationInSeconds: 10
 server:
-  port: 2100
+  port: 8080
 spring:
   application:
-    name: SERVICE-HELLO
+    name: Client

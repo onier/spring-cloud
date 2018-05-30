@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.example.demo;
 
 import com.netflix.appinfo.EurekaInstanceConfig;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,8 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Hello API服务
+ *
+ * @author CD826(CD826Dong@gmail.com)
+ * @since 1.0.0
+ */
 @RestController
 public class HelloEndpoint {
+
+    protected Logger logger = LoggerFactory.getLogger(HelloEndpoint.class);
 
     @Autowired
     private EurekaInstanceConfig eurekaInstanceConfig;
@@ -24,6 +27,7 @@ public class HelloEndpoint {
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String hello() {
+        this.logger.info("/hello, instanceId:{}, host:{}", eurekaInstanceConfig.getInstanceId(), eurekaInstanceConfig.getHostName(false));
         return "Hello, Spring Cloud! My port is " + String.valueOf(serverPort);
     }
 }
